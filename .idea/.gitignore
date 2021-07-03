@@ -17,7 +17,10 @@ gradle.xml
 # Other stuff
 /artifacts/
 /modules/
-/runConfigurations/Launch_*
+/runConfigurations/Debug_Zomboid*
+/runConfigurations/Run_Zomboid*
+/runConfigurations/initializeMod*
+/runConfigurations/setupWorkspace*
 compiler.xml
 libraries-with-intellij-classes.xml
 jarRepositories.xml
