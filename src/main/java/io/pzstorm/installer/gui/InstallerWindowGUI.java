@@ -18,7 +18,7 @@ public class InstallerWindowGUI extends JFrame {
 		$$$setupUI$$$();
 		setContentPane(mainPanel);
 		setTitle("Storm Installer");
-		setSize(800, 600);
+		setSize(600, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
@@ -38,14 +38,14 @@ public class InstallerWindowGUI extends JFrame {
 	private void $$$setupUI$$$() {
 
 		mainPanel = new JPanel();
-		mainPanel.setLayout(new FormLayout("fill:d:grow", "center:200px:noGrow,fill:d:grow"));
+		mainPanel.setLayout(new FormLayout("fill:d:grow", "center:150px:noGrow,fill:d:grow"));
 		mainPanel.setAlignmentX(0.5f);
 		mainPanel.setAlignmentY(0.5f);
 		mainPanel.setBackground(new Color(-16777216));
 		mainPanel.setForeground(new Color(-16777216));
-		mainPanel.setMinimumSize(new Dimension(800, 600));
+		mainPanel.setMinimumSize(new Dimension(600, 200));
 		mainPanel.setOpaque(false);
-		mainPanel.setPreferredSize(new Dimension(800, 200));
+		mainPanel.setPreferredSize(new Dimension(600, 500));
 		logoPanel = new JPanel();
 		logoPanel.setLayout(new FormLayout("center:d:grow", "center:d:grow"));
 		logoPanel.setAlignmentX(0.0f);
@@ -53,7 +53,7 @@ public class InstallerWindowGUI extends JFrame {
 		logoPanel.setAutoscrolls(false);
 		logoPanel.setBackground(new Color(-14604221));
 		logoPanel.setMinimumSize(new Dimension(1, 1));
-		logoPanel.setPreferredSize(new Dimension(100, 200));
+		logoPanel.setPreferredSize(new Dimension(100, 150));
 		CellConstraints cc = new CellConstraints();
 		mainPanel.add(logoPanel, cc.xy(1, 1, CellConstraints.FILL, CellConstraints.TOP));
 		logoIcon = new JLabel();
@@ -72,7 +72,7 @@ public class InstallerWindowGUI extends JFrame {
 		bottomPanel.setEnabled(true);
 		bottomPanel.setForeground(new Color(-16777216));
 		bottomPanel.setMinimumSize(new Dimension(1, 1));
-		bottomPanel.setPreferredSize(new Dimension(800, 400));
+		bottomPanel.setPreferredSize(new Dimension(600, 300));
 		mainPanel.add(bottomPanel, cc.xy(1, 2, CellConstraints.DEFAULT, CellConstraints.FILL));
 	}
 
