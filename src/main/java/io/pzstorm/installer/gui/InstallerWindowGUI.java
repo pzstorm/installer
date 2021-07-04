@@ -12,6 +12,7 @@ public class InstallerWindowGUI extends JFrame {
 	private JPanel logoPanel;
 	private JLabel logoIcon;
 	private JPanel bottomPanel;
+	private JLabel installerDesc;
 
 	public InstallerWindowGUI() {
 
@@ -21,6 +22,8 @@ public class InstallerWindowGUI extends JFrame {
 		setSize(600, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+
+		installerDesc.setText("Welcome to Zomboid Storm installer");
 	}
 
 	public static void main(String[] args) {
@@ -74,6 +77,43 @@ public class InstallerWindowGUI extends JFrame {
 		bottomPanel.setMinimumSize(new Dimension(1, 1));
 		bottomPanel.setPreferredSize(new Dimension(600, 300));
 		mainPanel.add(bottomPanel, cc.xy(1, 2, CellConstraints.DEFAULT, CellConstraints.FILL));
+		installerDesc = new JLabel();
+		installerDesc.setBackground(new Color(-1));
+		Font installerDescFont = this.$$$getFont$$$(null, -1, -1, installerDesc.getFont());
+		if (installerDescFont != null)
+			installerDesc.setFont(installerDescFont);
+		installerDesc.setForeground(new Color(-1));
+		installerDesc.setText("");
+		bottomPanel.add(installerDesc, cc.xy(1, 1, CellConstraints.CENTER, CellConstraints.DEFAULT));
+	}
+
+	/** @noinspection ALL */
+	private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+
+		if (currentFont == null)
+			return null;
+		String resultName;
+		if (fontName == null)
+		{
+			resultName = currentFont.getName();
+		}
+		else
+		{
+			Font testFont = new Font(fontName, Font.PLAIN, 10);
+			if (testFont.canDisplay('a') && testFont.canDisplay('1'))
+			{
+				resultName = fontName;
+			}
+			else
+			{
+				resultName = currentFont.getName();
+			}
+		}
+		Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+		boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
+		Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) :
+				new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
+		return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
 	}
 
 	/** @noinspection ALL */
