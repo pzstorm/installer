@@ -6,3 +6,12 @@ capsid {
     isModProject = false
     setProjectRepository('pzstorm', 'installer')
 }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.jgoodies/forms
+    implementation group: 'com.jgoodies', name: 'forms', version: '1.2.1'
+}
