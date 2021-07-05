@@ -111,7 +111,7 @@ public class InstallerWindowGUI extends JFrame {
 	private void $$$setupUI$$$() {
 
 		mainPanel = new JPanel();
-		mainPanel.setLayout(new FormLayout("fill:d:grow", "center:150px:noGrow,fill:d:grow"));
+		mainPanel.setLayout(new FormLayout("fill:d:grow", "center:200px:grow,fill:d:grow"));
 		mainPanel.setAlignmentX(0.5f);
 		mainPanel.setAlignmentY(0.5f);
 		mainPanel.setBackground(new Color(-16777216));
@@ -120,15 +120,16 @@ public class InstallerWindowGUI extends JFrame {
 		mainPanel.setOpaque(false);
 		mainPanel.setPreferredSize(new Dimension(600, 500));
 		logoPanel = new JPanel();
-		logoPanel.setLayout(new FormLayout("center:d:grow", "center:d:grow"));
+		logoPanel.setLayout(new FormLayout("center:d:grow", "fill:150px:grow,fill:50px:noGrow"));
 		logoPanel.setAlignmentX(0.0f);
 		logoPanel.setAlignmentY(0.0f);
 		logoPanel.setAutoscrolls(false);
 		logoPanel.setBackground(new Color(-14604221));
+		logoPanel.setDoubleBuffered(false);
 		logoPanel.setMinimumSize(new Dimension(1, 1));
 		logoPanel.setPreferredSize(new Dimension(100, 150));
 		CellConstraints cc = new CellConstraints();
-		mainPanel.add(logoPanel, cc.xy(1, 1, CellConstraints.FILL, CellConstraints.TOP));
+		mainPanel.add(logoPanel, cc.xy(1, 1, CellConstraints.FILL, CellConstraints.FILL));
 		logoIcon = new JLabel();
 		logoIcon.setAlignmentX(0.5f);
 		logoIcon.setAlignmentY(0.5f);
@@ -137,8 +138,17 @@ public class InstallerWindowGUI extends JFrame {
 		logoIcon.setIcon(new ImageIcon(getClass().getResource("/storm-logo.png")));
 		logoIcon.setText("");
 		logoPanel.add(logoIcon, cc.xy(1, 1, CellConstraints.CENTER, CellConstraints.DEFAULT));
+		installerDesc = new JLabel();
+		installerDesc.setBackground(new Color(-1));
+		Font installerDescFont = this.$$$getFont$$$(null, -1, -1, installerDesc.getFont());
+		if (installerDescFont != null)
+			installerDesc.setFont(installerDescFont);
+		installerDesc.setForeground(new Color(-1));
+		installerDesc.setText("");
+		logoPanel.add(installerDesc, cc.xy(1, 2, CellConstraints.CENTER, CellConstraints.CENTER));
 		bottomPanel = new JPanel();
-		bottomPanel.setLayout(new FormLayout("fill:d:grow", "center:d:grow"));
+		bottomPanel.setLayout(new FormLayout("fill:50px:noGrow,fill:d:grow,fill:d:grow,fill:max(d;4px):noGrow,fill:50px:noGrow",
+				"top:30dlu:grow,center:max(d;4px):noGrow,center:30dlu:grow,center:max(d;4px):noGrow,center:40dlu:grow"));
 		bottomPanel.setAlignmentX(0.5f);
 		bottomPanel.setBackground(new Color(-14604221));
 		bottomPanel.setDoubleBuffered(false);
@@ -147,14 +157,48 @@ public class InstallerWindowGUI extends JFrame {
 		bottomPanel.setMinimumSize(new Dimension(1, 1));
 		bottomPanel.setPreferredSize(new Dimension(600, 300));
 		mainPanel.add(bottomPanel, cc.xy(1, 2, CellConstraints.DEFAULT, CellConstraints.FILL));
-		installerDesc = new JLabel();
-		installerDesc.setBackground(new Color(-1));
-		Font installerDescFont = this.$$$getFont$$$(null, -1, -1, installerDesc.getFont());
-		if (installerDescFont != null)
-			installerDesc.setFont(installerDescFont);
-		installerDesc.setForeground(new Color(-1));
-		installerDesc.setText("");
-		bottomPanel.add(installerDesc, cc.xy(1, 1, CellConstraints.CENTER, CellConstraints.DEFAULT));
+		gameDirField = new JTextField();
+		gameDirField.setName("");
+		gameDirField.setPreferredSize(new Dimension(100, 30));
+		gameDirField.setText("");
+		gameDirField.setToolTipText("");
+		bottomPanel.add(gameDirField, cc.xyw(2, 2, 3, CellConstraints.FILL, CellConstraints.CENTER));
+		gameDirFieldLabel = new JLabel();
+		gameDirFieldLabel.setBackground(new Color(-7978430));
+		gameDirFieldLabel.setHorizontalAlignment(0);
+		gameDirFieldLabel.setHorizontalTextPosition(0);
+		gameDirFieldLabel.setMinimumSize(new Dimension(0, 20));
+		gameDirFieldLabel.setOpaque(true);
+		gameDirFieldLabel.setPreferredSize(new Dimension(0, 20));
+		gameDirFieldLabel.setRequestFocusEnabled(false);
+		gameDirFieldLabel.setText("");
+		bottomPanel.add(gameDirFieldLabel, cc.xyw(2, 1, 3, CellConstraints.FILL, CellConstraints.BOTTOM));
+		installDirField = new JTextField();
+		installDirField.setPreferredSize(new Dimension(100, 30));
+		bottomPanel.add(installDirField, cc.xyw(2, 4, 3, CellConstraints.FILL, CellConstraints.DEFAULT));
+		installDirFieldLabel = new JLabel();
+		installDirFieldLabel.setBackground(new Color(-7978430));
+		installDirFieldLabel.setHorizontalAlignment(0);
+		installDirFieldLabel.setHorizontalTextPosition(0);
+		installDirFieldLabel.setMinimumSize(new Dimension(0, 20));
+		installDirFieldLabel.setOpaque(true);
+		installDirFieldLabel.setPreferredSize(new Dimension(0, 20));
+		installDirFieldLabel.setText("");
+		bottomPanel.add(installDirFieldLabel, cc.xyw(2, 3, 3, CellConstraints.DEFAULT, CellConstraints.BOTTOM));
+		okButton = new JButton();
+		okButton.setMinimumSize(new Dimension(100, 30));
+		okButton.setPreferredSize(new Dimension(100, 30));
+		okButton.setText("");
+		bottomPanel.add(okButton, new CellConstraints(2, 5, 1, 1, CellConstraints.RIGHT, CellConstraints.DEFAULT, new Insets(10,
+				0, 0, 10)));
+		cancelButton = new JButton();
+		cancelButton.setMinimumSize(new Dimension(100, 30));
+		cancelButton.setPreferredSize(new Dimension(100, 30));
+		cancelButton.setText("");
+		bottomPanel.add(cancelButton, new CellConstraints(3, 5, 1, 1, CellConstraints.LEFT, CellConstraints.DEFAULT,
+				new Insets(10, 10, 0, 0)));
+		gameDirFieldLabel.setLabelFor(gameDirField);
+		installDirFieldLabel.setLabelFor(installDirField);
 	}
 
 	/** @noinspection ALL */
