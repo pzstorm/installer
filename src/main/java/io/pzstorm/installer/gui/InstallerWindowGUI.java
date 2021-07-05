@@ -7,16 +7,9 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Locale;
 
 public class InstallerWindowGUI extends JFrame {
-
-	/**
-	 * Font used by installer window text labels.
-	 */
-	private static final Font INSTALLER_FONT = registerAndGetLocalFont("ZenDots-Regular.ttf");
 
 	public JPanel mainPanel;
 	private JPanel logoPanel;
@@ -34,30 +27,16 @@ public class InstallerWindowGUI extends JFrame {
 		setVisible(true);
 
 		installerDesc.setText("Welcome to Zomboid Storm installer");
-		installerDesc.setFont(INSTALLER_FONT);
 	}
+		installerDesc.setFont(GUIFonts.DESC_FONT);
 
 	public static void main(String[] args) {
 
 		InstallerWindowGUI window = new InstallerWindowGUI();
 	}
 
-	public static Font registerAndGetLocalFont(String name) {
 
-		try
-		{
-			ClassLoader cl = InstallerWindowGUI.class.getClassLoader();
-			InputStream fontStream = cl.getResourceAsStream(name);
-			if (fontStream == null) {
-				throw new IOException("Unable to find font resource '" + name + "' as stream");
 			}
-			Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(12f);
-			GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
-			return font;
-		}
-		catch (FontFormatException | IOException e) {
-			throw new RuntimeException(e);
-		}
 	}
 
 	/**
