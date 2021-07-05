@@ -18,6 +18,8 @@ public class InstallerWindowGUI extends JFrame {
 	private JLabel installerDesc;
 	private JTextField gameDirField;
 	private JLabel gameDirFieldLabel;
+	private JTextField installDirField;
+	private JLabel installDirFieldLabel;
 
 	public InstallerWindowGUI() {
 
@@ -45,6 +47,13 @@ public class InstallerWindowGUI extends JFrame {
 
 
 			}
+		installDirFieldLabel.setText("Enter Storm installation directory");
+		installDirFieldLabel.setFont(GUIFonts.LABEL_FONT);
+		installDirFieldLabel.setForeground(Color.WHITE);
+
+		String installDirFieldText = "~/SteamLibrary/steamapps/common/ProjectZomboid/Storm/";
+		installDirField.setText(installDirFieldText);
+		installDirField.setForeground(Color.GRAY);
 
 	public static void main(String[] args) {
 		InstallerWindowGUI window = new InstallerWindowGUI();

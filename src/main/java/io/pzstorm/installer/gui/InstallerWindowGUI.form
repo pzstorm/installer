@@ -122,9 +122,33 @@
               <text value=""/>
             </properties>
           </component>
+          <component id="db3b2" class="javax.swing.JTextField" binding="installDirField">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
               <forms defaultalign-horz="false"/>
             </constraints>
             <properties>
+              <preferredSize width="100" height="30"/>
+            </properties>
+          </component>
+          <component id="3893e" class="javax.swing.JLabel" binding="installDirFieldLabel">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <background color="-7978430"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <labelFor value="db3b2"/>
+              <minimumSize width="0" height="20"/>
+              <opaque value="true"/>
+              <preferredSize width="0" height="20"/>
+              <text value=""/>
+            </properties>
+          </component>
               <text value=""/>
             </properties>
           </component>
