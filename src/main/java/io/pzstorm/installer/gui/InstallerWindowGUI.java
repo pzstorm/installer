@@ -33,13 +33,13 @@ public class InstallerWindowGUI extends JFrame {
 		);
 		installerDesc.setFont(GUIFonts.DESC_FONT);
 
-	public static void main(String[] args) {
 
-		InstallerWindowGUI window = new InstallerWindowGUI();
-	}
 
 
 			}
+
+	public static void main(String[] args) {
+		InstallerWindowGUI window = new InstallerWindowGUI();
 	}
 
 	/**
