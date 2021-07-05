@@ -26,8 +26,11 @@ public class InstallerWindowGUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
-		installerDesc.setText("Welcome to Zomboid Storm installer");
-	}
+		installerDesc.setText("<html><body>" +
+				"<p>Welcome to Zomboid Storm installer</p>" +
+				"<p style=\"text-align: center;padding-top: 5px\">version 41.50-0.2.1</p>" +
+				"</body></html"
+		);
 		installerDesc.setFont(GUIFonts.DESC_FONT);
 
 	public static void main(String[] args) {
