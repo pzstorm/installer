@@ -23,13 +23,13 @@ public class GUIFonts {
 
 	/**
 	 * Registers {@code Font} through {@code InputStream} from resources.
+	 * If the font is already registered this method will still return the font instance.
 	 *
 	 * @param path path to {@code Font} resource to register.
 	 *
 	 * @return instance of registered {@code Font}.
 	 *
-	 * @throws RuntimeException if the fontStream data does not contain the required font tables for the
-	 * 		specified format or if the file with the path corresponding to given name is not found in resources.
+	 * @throws RuntimeException if the file with the path corresponding to given name is not found in resources.
 	 */
 	public static Font registerLocalFont(String path) {
 
@@ -39,11 +39,8 @@ public class GUIFonts {
 				throw new IOException("Unable to find font resource '" + path + "' as stream");
 			}
 			Font localFont = Font.createFont(Font.TRUETYPE_FONT, fontStream);
-			boolean registered = GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(localFont);
-			if (!registered) {
-				throw new IllegalStateException("Unable to register font '" + path + '\'');
-			}
-			else return localFont;
+			GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(localFont);
+			return localFont;
 		}
 		catch (FontFormatException | IOException e) {
 			throw new RuntimeException(e);
