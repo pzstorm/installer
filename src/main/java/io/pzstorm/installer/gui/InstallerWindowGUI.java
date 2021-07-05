@@ -20,6 +20,8 @@ public class InstallerWindowGUI extends JFrame {
 	private JLabel gameDirFieldLabel;
 	private JTextField installDirField;
 	private JLabel installDirFieldLabel;
+	private JButton okButton;
+	private JButton cancelButton;
 
 	public InstallerWindowGUI() {
 
@@ -54,6 +56,10 @@ public class InstallerWindowGUI extends JFrame {
 		String installDirFieldText = "~/SteamLibrary/steamapps/common/ProjectZomboid/Storm/";
 		installDirField.setText(installDirFieldText);
 		installDirField.setForeground(Color.GRAY);
+
+		okButton.setText("OK");
+		cancelButton.setText("Cancel");
+	}
 
 	public static void main(String[] args) {
 		InstallerWindowGUI window = new InstallerWindowGUI();
