@@ -16,6 +16,8 @@ public class InstallerWindowGUI extends JFrame {
 	private JLabel logoIcon;
 	private JPanel bottomPanel;
 	private JLabel installerDesc;
+	private JTextField gameDirField;
+	private JLabel gameDirFieldLabel;
 
 	public InstallerWindowGUI() {
 
@@ -33,7 +35,13 @@ public class InstallerWindowGUI extends JFrame {
 		);
 		installerDesc.setFont(GUIFonts.DESC_FONT);
 
+		gameDirFieldLabel.setText("Enter path to Project Zomboid installation directory");
+		gameDirFieldLabel.setFont(GUIFonts.LABEL_FONT);
+		gameDirFieldLabel.setForeground(Color.WHITE);
 
+		String gameDirFieldText = "~/SteamLibrary/steamapps/common/ProjectZomboid/projectzomboid/";
+		gameDirField.setText(gameDirFieldText);
+		gameDirField.setForeground(Color.GRAY);
 
 
 			}
