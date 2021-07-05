@@ -7,6 +7,8 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.util.Locale;
 
 public class InstallerWindowGUI extends JFrame {
@@ -47,8 +49,24 @@ public class InstallerWindowGUI extends JFrame {
 		gameDirField.setText(gameDirFieldText);
 		gameDirField.setForeground(Color.GRAY);
 
+		gameDirField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
 
+				super.focusGained(e);
+				gameDirField.setText("");
 			}
+		});
+
+		gameDirField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+
+				super.focusLost(e);
+				gameDirField.setText(gameDirFieldText);
+			}
+		});
+
 		installDirFieldLabel.setText("Enter Storm installation directory");
 		installDirFieldLabel.setFont(GUIFonts.LABEL_FONT);
 		installDirFieldLabel.setForeground(Color.WHITE);
@@ -56,6 +74,24 @@ public class InstallerWindowGUI extends JFrame {
 		String installDirFieldText = "~/SteamLibrary/steamapps/common/ProjectZomboid/Storm/";
 		installDirField.setText(installDirFieldText);
 		installDirField.setForeground(Color.GRAY);
+
+		installDirField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+
+				super.focusGained(e);
+				installDirField.setText("");
+			}
+		});
+
+		installDirField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+
+				super.focusLost(e);
+				installDirField.setText(gameDirFieldText);
+			}
+		});
 
 		okButton.setText("OK");
 		cancelButton.setText("Cancel");
