@@ -14,12 +14,12 @@ public class GUIFonts {
 	/**
 	 * Font used by installer window description text.
 	 */
-	static final Font DESC_FONT = ZENDOTS_REGULAR.deriveFont(12f);
+	public static final Font DESC_FONT = ZENDOTS_REGULAR.deriveFont(14f);
 
 	/**
 	 * Font used by installed window label text.
 	 */
-	static final Font LABEL_FONT = ZENDOTS_REGULAR.deriveFont(10f);
+	public static final Font LABEL_FONT = ZENDOTS_REGULAR.deriveFont(12f);
 
 	/**
 	 * Registers {@code Font} through {@code InputStream} from resources.
@@ -34,7 +34,7 @@ public class GUIFonts {
 	public static Font registerLocalFont(String path) {
 
 		try {
-			InputStream fontStream = InstallerWindowGUI.class.getClassLoader().getResourceAsStream(path);
+			InputStream fontStream = StartView.class.getClassLoader().getResourceAsStream(path);
 			if (fontStream == null) {
 				throw new IOException("Unable to find font resource '" + path + "' as stream");
 			}
@@ -44,6 +44,21 @@ public class GUIFonts {
 		}
 		catch (FontFormatException | IOException e) {
 			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Recursively apply fonts to a JComponent and all children.
+	 * @param font The font to apply.
+	 * @param component The parent component.
+	 */
+	public static void applyCustomFont(Font font, Container component) {
+		component.setFont(font);
+		for (Component child: component.getComponents()) {
+			child.setFont(font);
+			if (child instanceof Container) {
+				applyCustomFont(font, ((Container)child));
+			}
 		}
 	}
 }
