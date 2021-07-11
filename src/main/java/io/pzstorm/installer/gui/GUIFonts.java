@@ -1,5 +1,6 @@
 package io.pzstorm.installer.gui;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,6 +45,21 @@ public class GUIFonts {
 		}
 		catch (FontFormatException | IOException e) {
 			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Recursively apply fonts to a JComponent and all children.
+	 * @param font The font to apply.
+	 * @param component The parent component.
+	 */
+	public static void applyCustomFont(Font font, Container component) {
+		component.setFont(font);
+		for (Component child: component.getComponents()) {
+			child.setFont(font);
+			if (child instanceof Container) {
+				applyCustomFont(font, ((Container)child));
+			}
 		}
 	}
 }

@@ -6,26 +6,36 @@ import java.util.Arrays;
 
 public class Application extends JFrame {
 
-    public static void main(String args[]) {
+    public static Application INSTANCE;
+    private CardLayout layout;
 
-        Application instance = new Application();
+    public Application() {
+        //basic metadata
+        setTitle("Storm Installer");
+        setSize(600, 500);
+        setPreferredSize(new Dimension(600, 500));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        MainPanel d = new MainPanel();
+        //add the views
+        layout = new CardLayout();
+        setLayout(layout);
+        add("MainPanel", new MainPanel().$$$getRootComponent$$$());
+        add("DirPanel", new DirectoriesPanel().$$$getRootComponent$$$());
 
-        instance.setTitle("Storm Installer");
-        instance.setLayout(new FlowLayout());
-        instance.setSize(600, 500);
-        instance.setPreferredSize(new Dimension(600, 500));
-        instance.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        instance.setContentPane(d.$$$getRootComponent$$$());
-        instance.setVisible(true);
+        //set custom fonts
+        GUIFonts.applyCustomFont(GUIFonts.LABEL_FONT, getContentPane());
 
-        for (Component component: d.$$$getRootComponent$$$().getComponents()) {
-            component.setFont(GUIFonts.LABEL_FONT);
-        }
+        //show
+        switchTo("MainPanel");
+        setVisible(true);
+    }
 
-        System.out.println(instance.getBounds()+", "+instance.getLayout()+", "+ Arrays.toString(instance.getComponents()));
+    public void switchTo(String viewName) {
+        layout.show(getContentPane(), viewName);
+    }
 
+    public static void main(String[] args) {
+        INSTANCE = new Application();
     }
 
 }
