@@ -14,12 +14,12 @@ public class GUIFonts {
 	/**
 	 * Font used by installer window description text.
 	 */
-	static final Font DESC_FONT = ZENDOTS_REGULAR.deriveFont(12f);
+	static final Font DESC_FONT = ZENDOTS_REGULAR.deriveFont(14f);
 
 	/**
 	 * Font used by installed window label text.
 	 */
-	static final Font LABEL_FONT = ZENDOTS_REGULAR.deriveFont(10f);
+	static final Font LABEL_FONT = ZENDOTS_REGULAR.deriveFont(12f);
 
 	/**
 	 * Registers {@code Font} through {@code InputStream} from resources.
@@ -34,7 +34,7 @@ public class GUIFonts {
 	public static Font registerLocalFont(String path) {
 
 		try {
-			InputStream fontStream = InstallerWindowGUI.class.getClassLoader().getResourceAsStream(path);
+			InputStream fontStream = MainPanel.class.getClassLoader().getResourceAsStream(path);
 			if (fontStream == null) {
 				throw new IOException("Unable to find font resource '" + path + "' as stream");
 			}
