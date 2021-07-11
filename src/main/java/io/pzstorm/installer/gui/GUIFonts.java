@@ -34,7 +34,7 @@ public class GUIFonts {
 	public static Font registerLocalFont(String path) {
 
 		try {
-			InputStream fontStream = MainView.class.getClassLoader().getResourceAsStream(path);
+			InputStream fontStream = StartView.class.getClassLoader().getResourceAsStream(path);
 			if (fontStream == null) {
 				throw new IOException("Unable to find font resource '" + path + "' as stream");
 			}

@@ -12,15 +12,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
 
-public class MainView {
+public class StartView {
     private JPanel root;
     private JButton installStormButton;
 
-    public MainView() {
+    public StartView() {
         installStormButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Application.INSTANCE.switchTo("DirPanel");
+                Application.INSTANCE.switchTo(GUIView.CHOOSE_FOLDERS);
             }
         });
     }

@@ -50,7 +50,7 @@ public class ChooseDirectoriesView {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Application.INSTANCE.switchTo("MainPanel");
+                Application.INSTANCE.switchTo(GUIView.START);
             }
         });
     }

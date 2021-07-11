@@ -2,7 +2,8 @@ package io.pzstorm.installer;
 
 import io.pzstorm.installer.gui.ChooseDirectoriesView;
 import io.pzstorm.installer.gui.GUIFonts;
-import io.pzstorm.installer.gui.MainView;
+import io.pzstorm.installer.gui.GUIView;
+import io.pzstorm.installer.gui.StartView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,19 +23,23 @@ public class Application extends JFrame {
         //add the views
         layout = new CardLayout();
         setLayout(layout);
-        add("MainPanel", new MainView().$$$getRootComponent$$$());
-        add("DirPanel", new ChooseDirectoriesView().$$$getRootComponent$$$());
+        add(GUIView.START, new StartView().$$$getRootComponent$$$());
+        add(GUIView.CHOOSE_FOLDERS, new ChooseDirectoriesView().$$$getRootComponent$$$());
 
         //set custom fonts
         GUIFonts.applyCustomFont(GUIFonts.LABEL_FONT, getContentPane());
 
         //show
-        switchTo("MainPanel");
+        switchTo(GUIView.START);
         setVisible(true);
     }
 
-    public void switchTo(String viewName) {
-        layout.show(getContentPane(), viewName);
+    public void add(GUIView view, JComponent component) {
+        this.add(view.name(), component);
+    }
+
+    public void switchTo(GUIView view) {
+        layout.show(getContentPane(), view.name());
     }
 
     public static void main(String[] args) {
