@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-public class DirectoriesPanel {
+public class ChooseDirectoriesView {
     private JPanel root;
     private JTextField gameDirField;
     private JButton gameBrowseButton;
@@ -21,7 +21,7 @@ public class DirectoriesPanel {
     private JButton nextButton;
     private JButton backButton;
 
-    public DirectoriesPanel() {
+    public ChooseDirectoriesView() {
         gameBrowseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

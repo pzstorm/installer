@@ -1,6 +1,5 @@
 package io.pzstorm.installer.gui;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,7 +34,7 @@ public class GUIFonts {
 	public static Font registerLocalFont(String path) {
 
 		try {
-			InputStream fontStream = MainPanel.class.getClassLoader().getResourceAsStream(path);
+			InputStream fontStream = MainView.class.getClassLoader().getResourceAsStream(path);
 			if (fontStream == null) {
 				throw new IOException("Unable to find font resource '" + path + "' as stream");
 			}

@@ -18,8 +18,8 @@ public class Application extends JFrame {
         //add the views
         layout = new CardLayout();
         setLayout(layout);
-        add("MainPanel", new MainPanel().$$$getRootComponent$$$());
-        add("DirPanel", new DirectoriesPanel().$$$getRootComponent$$$());
+        add("MainPanel", new MainView().$$$getRootComponent$$$());
+        add("DirPanel", new ChooseDirectoriesView().$$$getRootComponent$$$());
 
         //set custom fonts
         GUIFonts.applyCustomFont(GUIFonts.LABEL_FONT, getContentPane());

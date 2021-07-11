@@ -6,7 +6,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import javax.swing.*;
 import java.awt.*;
 
-public class DownloadPanel {
+public class ProgressView {
     private JButton cancelButton;
     private JPanel root;
     private JProgressBar progressBar;

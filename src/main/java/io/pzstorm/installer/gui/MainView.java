@@ -11,11 +11,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
 
-public class MainPanel {
+public class MainView {
     private JPanel root;
     private JButton installStormButton;
 
-    public MainPanel() {
+    public MainView() {
         installStormButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
