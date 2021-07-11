@@ -1,122 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="io.pzstorm.installer.gui.DirectoriesPanel">
-  <grid id="27dc6" binding="root" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="root" layout-manager="FormLayout">
+    <rowspec value="center:d:noGrow"/>
+    <rowspec value="top:16dlu:noGrow"/>
+    <rowspec value="center:28px:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:12dlu:noGrow"/>
+    <rowspec value="center:28px:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="top:22dlu:noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:383px:grow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="fill:161px:noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="572" height="424"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-14604221"/>
+    </properties>
     <border type="none"/>
     <children>
-      <grid id="7e14e" binding="dirPanel" layout-manager="FormLayout">
-        <rowspec value="center:max(d;4px):noGrow"/>
-        <rowspec value="top:4dlu:noGrow"/>
-        <rowspec value="top:30dlu:grow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
-        <rowspec value="center:30dlu:grow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
-        <rowspec value="center:40dlu:grow"/>
-        <colspec value="fill:50px:noGrow"/>
-        <colspec value="fill:d:grow"/>
-        <colspec value="fill:d:grow"/>
-        <colspec value="fill:max(d;4px):noGrow"/>
-        <colspec value="fill:50px:noGrow"/>
-        <constraints border-constraint="Center"/>
+      <component id="ab71d" class="javax.swing.JLabel" binding="setupLabel">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
         <properties>
-          <alignmentX value="0.5"/>
-          <background color="-14604221"/>
-          <doubleBuffered value="false"/>
-          <enabled value="true"/>
-          <foreground color="-16777216"/>
-          <minimumSize width="1" height="1"/>
-          <preferredSize width="600" height="300"/>
+          <foreground color="-1"/>
+          <icon value="storm-logo.png"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="fd159" class="javax.swing.JLabel" binding="gameDirLabel">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <background color="-7978430"/>
+          <foreground color="-1"/>
+          <horizontalAlignment value="0"/>
+          <opaque value="true"/>
+          <text value="Enter the Project Zomboid game directory:"/>
+        </properties>
+      </component>
+      <component id="ba23a" class="javax.swing.JLabel" binding="installDirLabel">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <background color="-7978430"/>
+          <foreground color="-1"/>
+          <horizontalAlignment value="0"/>
+          <opaque value="true"/>
+          <text value="Enter the Storm installation directory:"/>
+        </properties>
+      </component>
+      <component id="fe68b" class="javax.swing.JTextField" binding="gameDirField">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <name value=""/>
+          <preferredSize width="100" height="30"/>
+          <text value=""/>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+      <component id="d3959" class="javax.swing.JButton" binding="gameBrowseButton">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Browse..."/>
+        </properties>
+      </component>
+      <component id="49b74" class="javax.swing.JTextField" binding="installDirField">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <preferredSize width="100" height="30"/>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+      <component id="c66e6" class="javax.swing.JButton" binding="installBrowseButton">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Browse..."/>
+        </properties>
+      </component>
+      <vspacer id="fc0ee">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+      </vspacer>
+      <grid id="2a05" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
         </properties>
         <border type="none"/>
         <children>
-          <component id="2ba78" class="javax.swing.JTextField" binding="gameDirField">
-            <constraints>
-              <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-            </constraints>
+          <component id="7b100" class="javax.swing.JButton" binding="nextButton" default-binding="true">
+            <constraints border-constraint="East"/>
             <properties>
-              <name value=""/>
-              <preferredSize width="100" height="30"/>
-              <text value=""/>
-              <toolTipText value=""/>
-            </properties>
-          </component>
-          <component id="89a75" class="javax.swing.JTextField" binding="installDirField">
-            <constraints>
-              <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <forms defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <preferredSize width="100" height="30"/>
-              <toolTipText value=""/>
-            </properties>
-          </component>
-          <component id="49d13" class="javax.swing.JLabel" binding="installDirFieldLabel">
-            <constraints>
-              <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
-              <forms defaultalign-vert="false"/>
-            </constraints>
-            <properties>
-              <background color="-7978430"/>
-              <foreground color="-1"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <labelFor value="89a75"/>
-              <minimumSize width="0" height="20"/>
-              <opaque value="true"/>
-              <preferredSize width="0" height="20"/>
-              <text value="Enter the desired Storm installation directory:"/>
-            </properties>
-          </component>
-          <component id="c0bad" class="javax.swing.JButton" binding="backButton">
-            <constraints>
-              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-              <forms top="10" left="0" bottom="0" right="10" defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <minimumSize width="100" height="30"/>
-              <preferredSize width="100" height="30"/>
-              <text value="Back"/>
-            </properties>
-          </component>
-          <component id="aa81" class="javax.swing.JButton" binding="nextButton">
-            <constraints>
-              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <forms top="10" left="10" bottom="0" right="0" defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <minimumSize width="100" height="30"/>
-              <preferredSize width="100" height="30"/>
+              <enabled value="false"/>
               <text value="Next"/>
             </properties>
           </component>
-          <component id="b862f" class="javax.swing.JLabel" binding="gameDirFieldLabel">
-            <constraints>
-              <grid row="0" column="1" row-span="3" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
-              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-            </constraints>
+          <component id="a64c4" class="javax.swing.JButton" binding="backButton">
+            <constraints border-constraint="West"/>
             <properties>
-              <background color="-7978430"/>
-              <foreground color="-1"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <labelFor value="2ba78"/>
-              <minimumSize width="0" height="20"/>
-              <opaque value="true"/>
-              <preferredSize width="0" height="20"/>
-              <requestFocusEnabled value="false"/>
-              <text value="Enter the Project Zomboid installation directory:"/>
+              <text value="Back"/>
             </properties>
           </component>
         </children>
       </grid>
+      <vspacer id="3434f">
+        <constraints>
+          <grid row="12" column="2" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

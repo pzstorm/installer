@@ -7,18 +7,45 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class DirectoriesPanel {
     private JPanel root;
-    private JPanel dirPanel;
     private JTextField gameDirField;
+    private JButton gameBrowseButton;
     private JTextField installDirField;
-    private JLabel installDirFieldLabel;
-    private JButton backButton;
+    private JButton installBrowseButton;
+    private JLabel setupLabel;
+    private JLabel gameDirLabel;
+    private JLabel installDirLabel;
     private JButton nextButton;
-    private JLabel gameDirFieldLabel;
+    private JButton backButton;
 
     public DirectoriesPanel() {
+        gameBrowseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser();
+                chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                int result = chooser.showOpenDialog(root);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selected = chooser.getSelectedFile();
+                    gameDirField.setText(selected.getAbsolutePath());
+                }
+            }
+        });
+        installBrowseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser();
+                chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                int result = chooser.showOpenDialog(root);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selected = chooser.getSelectedFile();
+                    installDirField.setText(selected.getAbsolutePath());
+                }
+            }
+        });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,61 +70,59 @@ public class DirectoriesPanel {
      */
     private void $$$setupUI$$$() {
         root = new JPanel();
-        root.setLayout(new BorderLayout(0, 0));
-        dirPanel = new JPanel();
-        dirPanel.setLayout(new FormLayout("fill:50px:noGrow,fill:d:grow,fill:d:grow,fill:max(d;4px):noGrow,fill:50px:noGrow", "center:max(d;4px):noGrow,top:4dlu:noGrow,top:30dlu:grow,center:max(d;4px):noGrow,center:30dlu:grow,center:max(d;4px):noGrow,center:40dlu:grow"));
-        dirPanel.setAlignmentX(0.5f);
-        dirPanel.setBackground(new Color(-14604221));
-        dirPanel.setDoubleBuffered(false);
-        dirPanel.setEnabled(true);
-        dirPanel.setForeground(new Color(-16777216));
-        dirPanel.setMinimumSize(new Dimension(1, 1));
-        dirPanel.setPreferredSize(new Dimension(600, 300));
-        root.add(dirPanel, BorderLayout.CENTER);
+        root.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:383px:grow,fill:max(d;4px):noGrow,fill:161px:noGrow,left:4dlu:noGrow,fill:max(d;4px):noGrow", "center:d:noGrow,top:16dlu:noGrow,center:28px:noGrow,center:max(d;4px):noGrow,top:12dlu:noGrow,center:28px:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,top:22dlu:noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:d:grow"));
+        root.setBackground(new Color(-14604221));
+        setupLabel = new JLabel();
+        setupLabel.setForeground(new Color(-1));
+        setupLabel.setIcon(new ImageIcon(getClass().getResource("/storm-logo.png")));
+        setupLabel.setText("");
+        CellConstraints cc = new CellConstraints();
+        root.add(setupLabel, cc.xyw(3, 1, 3, CellConstraints.CENTER, CellConstraints.DEFAULT));
+        gameDirLabel = new JLabel();
+        gameDirLabel.setBackground(new Color(-7978430));
+        gameDirLabel.setForeground(new Color(-1));
+        gameDirLabel.setHorizontalAlignment(0);
+        gameDirLabel.setOpaque(true);
+        gameDirLabel.setText("Enter the Project Zomboid game directory:");
+        root.add(gameDirLabel, cc.xyw(3, 3, 3, CellConstraints.FILL, CellConstraints.FILL));
+        installDirLabel = new JLabel();
+        installDirLabel.setBackground(new Color(-7978430));
+        installDirLabel.setForeground(new Color(-1));
+        installDirLabel.setHorizontalAlignment(0);
+        installDirLabel.setOpaque(true);
+        installDirLabel.setText("Enter the Storm installation directory:");
+        root.add(installDirLabel, cc.xyw(3, 6, 3, CellConstraints.FILL, CellConstraints.FILL));
         gameDirField = new JTextField();
         gameDirField.setName("");
         gameDirField.setPreferredSize(new Dimension(100, 30));
         gameDirField.setText("");
         gameDirField.setToolTipText("");
-        CellConstraints cc = new CellConstraints();
-        dirPanel.add(gameDirField, cc.xyw(2, 4, 3, CellConstraints.FILL, CellConstraints.CENTER));
+        root.add(gameDirField, cc.xy(3, 4, CellConstraints.FILL, CellConstraints.CENTER));
+        gameBrowseButton = new JButton();
+        gameBrowseButton.setText("Browse...");
+        root.add(gameBrowseButton, cc.xy(5, 4));
         installDirField = new JTextField();
         installDirField.setPreferredSize(new Dimension(100, 30));
         installDirField.setToolTipText("");
-        dirPanel.add(installDirField, cc.xyw(2, 6, 3, CellConstraints.FILL, CellConstraints.DEFAULT));
-        installDirFieldLabel = new JLabel();
-        installDirFieldLabel.setBackground(new Color(-7978430));
-        installDirFieldLabel.setForeground(new Color(-1));
-        installDirFieldLabel.setHorizontalAlignment(0);
-        installDirFieldLabel.setHorizontalTextPosition(0);
-        installDirFieldLabel.setMinimumSize(new Dimension(0, 20));
-        installDirFieldLabel.setOpaque(true);
-        installDirFieldLabel.setPreferredSize(new Dimension(0, 20));
-        installDirFieldLabel.setText("Enter the desired Storm installation directory:");
-        dirPanel.add(installDirFieldLabel, cc.xyw(2, 5, 3, CellConstraints.DEFAULT, CellConstraints.BOTTOM));
-        backButton = new JButton();
-        backButton.setMinimumSize(new Dimension(100, 30));
-        backButton.setPreferredSize(new Dimension(100, 30));
-        backButton.setText("Back");
-        dirPanel.add(backButton, new CellConstraints(2, 7, 1, 1, CellConstraints.RIGHT, CellConstraints.DEFAULT, new Insets(10, 0, 0, 10)));
+        root.add(installDirField, cc.xy(3, 7, CellConstraints.FILL, CellConstraints.DEFAULT));
+        installBrowseButton = new JButton();
+        installBrowseButton.setText("Browse...");
+        root.add(installBrowseButton, cc.xy(5, 7));
+        final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
+        root.add(spacer1, cc.xyw(3, 9, 3, CellConstraints.DEFAULT, CellConstraints.FILL));
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new BorderLayout(0, 0));
+        panel1.setOpaque(false);
+        root.add(panel1, cc.xyw(3, 11, 3));
         nextButton = new JButton();
-        nextButton.setMinimumSize(new Dimension(100, 30));
-        nextButton.setPreferredSize(new Dimension(100, 30));
+        nextButton.setEnabled(false);
         nextButton.setText("Next");
-        dirPanel.add(nextButton, new CellConstraints(3, 7, 1, 1, CellConstraints.LEFT, CellConstraints.DEFAULT, new Insets(10, 10, 0, 0)));
-        gameDirFieldLabel = new JLabel();
-        gameDirFieldLabel.setBackground(new Color(-7978430));
-        gameDirFieldLabel.setForeground(new Color(-1));
-        gameDirFieldLabel.setHorizontalAlignment(0);
-        gameDirFieldLabel.setHorizontalTextPosition(0);
-        gameDirFieldLabel.setMinimumSize(new Dimension(0, 20));
-        gameDirFieldLabel.setOpaque(true);
-        gameDirFieldLabel.setPreferredSize(new Dimension(0, 20));
-        gameDirFieldLabel.setRequestFocusEnabled(false);
-        gameDirFieldLabel.setText("Enter the Project Zomboid installation directory:");
-        dirPanel.add(gameDirFieldLabel, cc.xywh(2, 1, 3, 3, CellConstraints.FILL, CellConstraints.BOTTOM));
-        installDirFieldLabel.setLabelFor(installDirField);
-        gameDirFieldLabel.setLabelFor(gameDirField);
+        panel1.add(nextButton, BorderLayout.EAST);
+        backButton = new JButton();
+        backButton.setText("Back");
+        panel1.add(backButton, BorderLayout.WEST);
+        final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
+        root.add(spacer2, cc.xyw(3, 13, 3, CellConstraints.DEFAULT, CellConstraints.FILL));
     }
 
     /**

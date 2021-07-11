@@ -2,7 +2,6 @@ package io.pzstorm.installer.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
 
 public class Application extends JFrame {
 
