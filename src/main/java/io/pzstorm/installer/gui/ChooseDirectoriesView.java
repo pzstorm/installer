@@ -2,6 +2,7 @@ package io.pzstorm.installer.gui;
 
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import io.pzstorm.installer.Application;
 
 import javax.swing.*;
 import java.awt.*;

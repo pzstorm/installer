@@ -1,4 +1,8 @@
-package io.pzstorm.installer.gui;
+package io.pzstorm.installer;
+
+import io.pzstorm.installer.gui.ChooseDirectoriesView;
+import io.pzstorm.installer.gui.GUIFonts;
+import io.pzstorm.installer.gui.MainView;
 
 import javax.swing.*;
 import java.awt.*;

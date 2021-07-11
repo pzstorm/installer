@@ -14,12 +14,12 @@ public class GUIFonts {
 	/**
 	 * Font used by installer window description text.
 	 */
-	static final Font DESC_FONT = ZENDOTS_REGULAR.deriveFont(14f);
+	public static final Font DESC_FONT = ZENDOTS_REGULAR.deriveFont(14f);
 
 	/**
 	 * Font used by installed window label text.
 	 */
-	static final Font LABEL_FONT = ZENDOTS_REGULAR.deriveFont(12f);
+	public static final Font LABEL_FONT = ZENDOTS_REGULAR.deriveFont(12f);
 
 	/**
 	 * Registers {@code Font} through {@code InputStream} from resources.
